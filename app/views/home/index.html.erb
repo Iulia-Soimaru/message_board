@@ -8,5 +8,6 @@
 
 <% if user_signed_in? %>
 <p>You are loged in as <%= current_user.email %></p>
+<p><%= link_to "Create a new post", new_post_path %></p>
 <p><%= link_to "Log out", destroy_user_session_path, method: "delete" %></p>
 <% end %>
