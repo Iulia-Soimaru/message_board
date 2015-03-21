@@ -1,2 +1,12 @@
 <h1>Home page</h1>
 <p>User is logged in evaluates to: <%= @user_signed_in %></p>
+
+<% if !user_signed_in? %>
+  <p><%= link_to "Sign up", new_user_registration_path %></p>
+  <p><%= link_to "Sign in", new_user_session_path %></p>
+<% end %>
+
+<% if user_signed_in? %>
+<p>You are loged in as <%= current_user.email %></p>
+<p><%= link_to "Log out", destroy_user_session_path, method: "delete" %></p>
+<% end %>
